@@ -19,6 +19,48 @@
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+<style>
+    /* Styling for form input fields */
+    .default-form .form-group input[type="text"],
+    .default-form .form-group input[type="email"],
+    .default-form .form-group input[type="datetime-local"],
+    .default-form .form-group input[type="radio"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    /* Additional focus styling */
+    .default-form .form-group input[type="datetime-local"]:focus,
+    .default-form .form-group input[type="text"]:focus,
+    .default-form .form-group input[type="email"]:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        outline: none;
+    }
+
+    /* Styling for labels */
+    .default-form .form-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    /* Styling for radio buttons container */
+    .default-form .radio-box {
+        margin-right: 15px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+</style>
+
+
 </head>
 
 <body>
@@ -204,7 +246,7 @@
 					</div>
 				</div>
 
-				<!-- Form Column -->
+<!-- Form Column -->
 <div class="slider-two_form-column col-lg-5 col-md-12 col-sm-12">
     <div class="slider-two_form-outer">
         <h2 class="slider-two_form-heading">Request an Appointment</h2>
@@ -261,6 +303,7 @@
 
     </div>
 </div>
+
 
 
 			</div>
