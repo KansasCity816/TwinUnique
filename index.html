@@ -43,12 +43,6 @@ e<!DOCTYPE html>
 
 
 </style>
-<!-- Magnific Popup CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
-
-<!-- Magnific Popup JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
 </head>
 
@@ -396,10 +390,18 @@ e<!DOCTYPE html>
 								<a href="tel:+1-123-456-7890">+1-816-382-8993</a>
 							</div>
 							<div class="about-two_video">
-	<a href="https://www.youtube.com/watch?v=aO_kPW39um8" class="lightbox-video play-box">
+	<a href="https://www.youtube.com/embed/aO_kPW39um8" class="play-box" id="video-trigger">
 		<span class="fa fa-play"></span>
 		<i>Watch Video</i>
 	</a>
+</div>
+
+<!-- Lightbox Container -->
+<div id="video-lightbox" class="lightbox">
+	<div class="lightbox-content">
+		<iframe id="video-frame" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		<span class="lightbox-close">&times;</span>
+	</div>
 </div>
 
 						</div>
@@ -1159,21 +1161,6 @@ e<!DOCTYPE html>
 <script src="assets/js/nav-tool.js"></script>
 <script src="assets/js/jquery-ui.js"></script>
 <script src="assets/js/script.js"></script>
-$(document).ready(function () {
-	$('.lightbox-video').magnificPopup({
-		type: 'iframe',
-		iframe: {
-			patterns: {
-				youtube: {
-					index: 'youtube.com/',
-					id: 'v=',
-					src: 'https://www.youtube.com/embed/%id%?autoplay=1'
-				}
-			},
-			srcAction: 'iframe_src',
-		}
-	});
-});
 
 </body>
 </html>
