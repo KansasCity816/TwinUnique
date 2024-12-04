@@ -41,9 +41,71 @@ e<!DOCTYPE html>
 }
 
 
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: 15% auto;
+    padding: 0;
+    width: 80%;
+    max-width: 800px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 450px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #000;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 </style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('videoModal');
+    const videoTrigger = document.getElementById('video-trigger');
+    const closeModal = document.querySelector('.close');
+    const videoFrame = document.getElementById('videoFrame');
 
+    videoTrigger.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent navigation
+        modal.style.display = 'block';
+        videoFrame.src = videoTrigger.getAttribute('href');
+    });
+
+    closeModal.addEventListener('click', function () {
+        modal.style.display = 'none';
+        videoFrame.src = ''; // Stop the video
+    });
+
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            videoFrame.src = ''; // Stop the video
+        }
+    });
+});
+</script>
 </head>
 
 <body>
@@ -390,19 +452,20 @@ e<!DOCTYPE html>
 								<a href="tel:+1-123-456-7890">+1-816-382-8993</a>
 							</div>
 							<div class="about-two_video">
-	<a href="https://www.youtube.com/embed/aO_kPW39um8?si=ZAtIlpmM7NLJHRSv" class="play-box" id="video-trigger">
-		<span class="fa fa-play"></span>
-		<i>Watch Video</i>
-	</a>
+    <a href="https://www.youtube.com/embed/aO_kPW39um8?si=ZAtIlpmM7NLJHRSv" class="play-box" id="video-trigger">
+        <span class="fa fa-play"></span>
+        <i>Watch Video</i>
+    </a>
 </div>
 
-<!-- Lightbox Container -->
-<div id="video-lightbox" class="lightbox">
-	<div class="lightbox-content">
-		<iframe id="video-frame" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-		<span class="lightbox-close">&times;</span>
-	</div>
+<!-- Modal -->
+<div id="videoModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
 </div>
+
 
 						</div>
 					</div>
