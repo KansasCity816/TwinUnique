@@ -308,13 +308,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="news-block_two">
                             <div class="news-block_two-inner wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
                                 <div class="news-block_two-image">
-                                    <a href="${blog.id}.html"><img src="${blog.image}" alt="${blog.title}" /></a>
-                                    <a href="${blog.id}.html" class="news-block_two-arrow fa-solid fa-arrow-right fa-fw"></a>
+                                    <a href="/pages/blog/${blog.id}.html"><img src="${blog.image}" alt="${blog.title}" /></a>
+                                    <a href="/pages/blog/${blog.id}.html" class="news-block_two-arrow fa-solid fa-arrow-right fa-fw"></a>
                                 </div>
                                 <div class="news-block_two-content">
                                     <div class="news-block_two-title">${blog.category || 'General'}</div>
                                     <h4 class="news-block_two-heading">
-                                        <a href="${blog.id}.html">${blog.title}</a>
+                                        <a href="/pages/blog/${blog.id}.html">${blog.title}</a>
                                     </h4>
                                     <div class="news-block_two-text">${blog.description || blog.content.substring(0, 150)}...</div>
                                     <ul class="news-block_two-meta">
