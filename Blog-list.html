@@ -294,6 +294,46 @@
 <script src="assets/js/nav-tool.js"></script>
 <script src="assets/js/jquery-ui.js"></script>
 <script src="assets/js/script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('/api/blogs')
+        .then((response) => response.json())
+        .then((blogs) => {
+            const blogListContainer = document.querySelector('.blog-classic');
+            blogListContainer.innerHTML = ""; // Clear any default content
+
+            if (blogs.length > 0) {
+                blogs.forEach((blog) => {
+                    const blogHTML = `
+                        <div class="news-block_two">
+                            <div class="news-block_two-inner wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
+                                <div class="news-block_two-image">
+                                    <a href="${blog.id}.html"><img src="${blog.image}" alt="${blog.title}" /></a>
+                                    <a href="${blog.id}.html" class="news-block_two-arrow fa-solid fa-arrow-right fa-fw"></a>
+                                </div>
+                                <div class="news-block_two-content">
+                                    <div class="news-block_two-title">${blog.category || 'General'}</div>
+                                    <h4 class="news-block_two-heading">
+                                        <a href="${blog.id}.html">${blog.title}</a>
+                                    </h4>
+                                    <div class="news-block_two-text">${blog.description || blog.content.substring(0, 150)}...</div>
+                                    <ul class="news-block_two-meta">
+                                        <li><span class="icon fa-solid fa-calendar-days fa-fw"></span>${blog.date}</li>
+                                        <li><span class="icon fa-regular fa-user fa-fw"></span>${blog.author || 'Admin'}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    blogListContainer.innerHTML += blogHTML;
+                });
+            } else {
+                blogListContainer.innerHTML = "<p>No blogs available. Please add some!</p>";
+            }
+        })
+        .catch((error) => console.error("Error fetching blogs:", error));
+});
+</script>
 
 </body>
 </html>
