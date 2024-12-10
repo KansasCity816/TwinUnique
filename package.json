@@ -6,8 +6,18 @@
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["real-estate", "blog", "website"],
+  "keywords": [
+    "real-estate",
+    "blog",
+    "website"
+  ],
   "author": "Rachelle Fields",
   "license": "ISC",
-  "description": "A real estate website with a Node.js-powered blog solution"
+  "description": "A real estate website with a Node.js-powered blog solution",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "path": "^0.12.7"
+  }
 }
