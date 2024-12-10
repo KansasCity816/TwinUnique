@@ -13,12 +13,5 @@
     "author": "John Doe",
     "date": "2024-12-05"
   },
-  {
-    "title": "test",
-    "category": "testing",
-    "description": "test",
-    "image": "https://kansascity816.github.io/TwinUnique/assets/images/blog/house-1.jpg",
-    "slug": "test",
-    "date": "2024-12-10T06:20:33.751Z"
-  }
+  
 ]
