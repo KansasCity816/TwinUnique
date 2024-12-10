@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Welcome to Our Blog",
+        "content": "This is the first post in our new blog. Stay tuned for more updates.",
+        "image": "assets/images/blog1.jpg",
+        "author": "Admin",
+        "date": "2024-12-01"
+    },
+    {
+        "title": "Blogging Best Practices",
+        "content": "Learn the best practices to create engaging blog content.",
+        "image": "assets/images/blog2.jpg",
+        "author": "John Doe",
+        "date": "2024-12-05"
+    }
+]
