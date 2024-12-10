@@ -1,18 +1,5 @@
 [
-  {
-    "title": "Welcome to Our Blog",
-    "content": "This is the first post in our new blog. Stay tuned for more updates.",
-    "image": "assets/images/blog1.jpg",
-    "author": "Admin",
-    "date": "2024-12-01"
-  },
-  {
-    "title": "Blogging Best Practices",
-    "content": "Learn the best practices to create engaging blog content.",
-    "image": "assets/images/blog2.jpg",
-    "author": "John Doe",
-    "date": "2024-12-05"
-  },
+  
   {
     "id": "test",
     "title": "test",
@@ -20,6 +7,16 @@
     "author": "Twin Unique Real Estate",
     "category": "testing this",
     "image": "https://kansascity816.github.io/TwinUnique/assets/images/blog/house-1.jpg",
+    "description": "test",
+    "content": "test"
+  },
+  {
+    "id": "test-2",
+    "title": "test 2",
+    "date": "2024-12-10",
+    "author": "Twin Unique Real Estate",
+    "category": "testing",
+    "image": "https://kansascity816.github.io/TwinUnique/assets/images/blog/house-2.jpg",
     "description": "test",
     "content": "test"
   }
