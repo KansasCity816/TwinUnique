@@ -7,17 +7,17 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('public')); // Static files like HTML/CSS/JS
+app.use(express.static(__dirname)); // Static files like HTML/CSS/JS
 
-// Serve the Blog Add Page
+// Route to serve the add-blog.html file directly from the root directory
 app.get('/add-blog', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'add-blog.html'));
+    res.sendFile(path.join(__dirname, 'add-blog.html'));
 });
 
 // Blog API
 let blogs = [];
 
-app.get('/api/blogs', (req, res) => {
+app.get('/api/blog', (req, res) => {
     res.json(blogs);
 });
 
