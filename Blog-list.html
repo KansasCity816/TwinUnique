@@ -2,151 +2,126 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Zinex Construction Business HTML-5 Template | Blog Classic</title>
+<title>Blog Classic | Dynamic Blog List</title>
 <!-- Stylesheets -->
 <link href="assets/css/bootstrap.css" rel="stylesheet">
 <link href="assets/css/style.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,800;9..40,900&display=swap" rel="stylesheet">
-
 <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-<link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
 
 <body>
 
 <div class="page-wrapper">
-	<!-- Cursor -->
-	<div class="cursor"></div>
-	<div class="cursor-follower"></div>
-	<!-- Cursor End -->
- 	
-	<!-- Preloader -->
-    <div class="preloader"></div>
-	<!-- End Preloader -->
-	
-	<!-- Main Header -->
-	<header class="main-header header-style-one">
-		<!-- Header Lower -->
-		<div class="header-lower">
-			<div class="auto-container">
-				<div class="inner-container">
-					<div class="d-flex justify-content-between align-items-center flex-wrap">
-						
-						<div class="logo-box">
-							<div class="logo"><a href="index.html"><img src="assets/images/logo.png" alt="Logo" title="Zinex"></a></div>
-						</div>
-						
-						<div class="nav-outer d-flex flex-wrap">
-							<!-- Main Menu -->
-							<nav class="main-menu navbar-expand-md">
-								<div class="navbar-header">
-									<!-- Toggle Button -->    	
-									<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-								</div>
-								
-								<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
-									<ul class="navigation clearfix">
-										<li><a href="index.html">Home</a></li>
-										<li><a href="about.html">About</a></li>
-										<li><a href="services.html">Services</a></li>
-										<li><a href="blog.html">Blog</a></li>
-										<li><a href="contact.html">Contact</a></li>
-									</ul>
-								</div>
-							</nav>
-						</div>
+    <!-- Main Header -->
+    <header class="main-header header-style-one">
+        <div class="header-lower">
+            <div class="auto-container">
+                <div class="inner-container">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                        <div class="logo-box">
+                            <div class="logo"><a href="index.html"><img src="assets/images/logo.png" alt="Logo" title="Zinex"></a></div>
+                        </div>
+                        <div class="nav-outer d-flex flex-wrap">
+                            <!-- Main Menu -->
+                            <nav class="main-menu navbar-expand-md">
+                                <div class="navbar-header">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                                    <ul class="navigation clearfix">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="services.html">Services</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Main Header -->
 
-						<!-- Main Menu End-->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--End Header Lower-->
-	</header>
-	<!-- End Main Header -->
-	
-	<!-- Page Title -->
+    <!-- Page Title -->
     <section class="page-title" style="background-image:url(assets/images/background/2.jpg)">
         <div class="auto-container">
-			<h2>Blog Classic</h2>
-			<ul class="bread-crumb clearfix">
-				<li><a href="index.html">Home</a></li>
-				<li>Blog Classic</li>
-			</ul>
+            <h2>Blog Classic</h2>
+            <ul class="bread-crumb clearfix">
+                <li><a href="index.html">Home</a></li>
+                <li>Blog Classic</li>
+            </ul>
         </div>
     </section>
     <!-- End Page Title -->
-	
-	<!-- Sidebar Page Container -->
+
+    <!-- Sidebar Page Container -->
     <div class="sidebar-page-container">
-    	<div class="auto-container">
-        	<div class="row clearfix">
-				
-				<!-- Content Side -->
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!-- Content Side -->
                 <div class="content-side col-lg-9 col-md-12 col-sm-12">
-					<div class="blog-classic" id="blogList">
+                    <div class="blog-classic" id="blogList">
                         <!-- Blogs will be dynamically loaded here -->
                     </div>
-				</div>
+                </div>
 
-				<!-- Sidebar Side -->
+                <!-- Sidebar Side -->
                 <div class="sidebar-side col-lg-3 col-md-12 col-sm-12">
-                	<aside class="sidebar sticky-top">
-						<!-- Popular Category Widget -->
-						<div class="sidebar-widget popular-widget">
-							<div class="sidebar-title">
-								<h5>Popular Category</h5>
-							</div>
-							<div class="widget-content">
-								<ul class="popular-list">
-									<li><a href="#">Web Development</a></li>
-									<li><a href="#">Design</a></li>
-									<li><a href="#">Technology</a></li>
-								</ul>
-							</div>
-						</div>
-					</aside>
-				</div>
-			</div>
-		</div>
-	</div>
+                    <aside class="sidebar sticky-top">
+                        <!-- Popular Category Widget -->
+                        <div class="sidebar-widget popular-widget">
+                            <div class="sidebar-title">
+                                <h5>Popular Category</h5>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="popular-list">
+                                    <li><a href="#">Web Development</a></li>
+                                    <li><a href="#">Design</a></li>
+                                    <li><a href="#">Technology</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<!-- Main Footer -->
-	<footer class="main-footer">
-		<div class="auto-container">
-			<div class="main-footer_content">
-				<h2 class="main-footer_title">Let’s Start Work Today?</h2>
-				<div class="main-footer_button">
-					<a href="contact.html" class="theme-btn btn-style-two">
-						<span class="btn-wrap">
-							<span class="text-one">Contact Us</span>
-							<span class="text-two">Contact Us</span>
-						</span>
-					</a>
-				</div>
-			</div>
-		</div>
-	</footer>
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <div class="auto-container">
+            <div class="main-footer_content">
+                <h2 class="main-footer_title">Let’s Start Work Today?</h2>
+                <div class="main-footer_button">
+                    <a href="contact.html" class="theme-btn btn-style-two">
+                        <span class="btn-wrap">
+                            <span class="text-one">Contact Us</span>
+                            <span class="text-two">Contact Us</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 
 <!-- JavaScript -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
-
         const blogList = document.getElementById("blogList");
 
         if (blogs.length > 0) {
@@ -155,15 +130,16 @@
                     <div class="news-block_two">
                         <div class="news-block_two-inner">
                             <div class="news-block_two-image">
-                                <img src="${blog.image}" alt="${blog.title}" />
+                                <a href="${blog.id}.html"><img src="${blog.image}" alt="${blog.title}" /></a>
                             </div>
                             <div class="news-block_two-content">
-                                <h4 class="news-block_two-heading">${blog.title}</h4>
+                                <h4 class="news-block_two-heading"><a href="${blog.id}.html">${blog.title}</a></h4>
                                 <div class="news-block_two-text">${blog.content.substring(0, 150)}...</div>
                                 <ul class="news-block_two-meta">
                                     <li><span class="icon fa-solid fa-calendar-days fa-fw"></span>${blog.date}</li>
                                     <li><span class="icon fa-regular fa-user fa-fw"></span>${blog.author}</li>
                                 </ul>
+                                <a href="${blog.id}.html" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     </div>
