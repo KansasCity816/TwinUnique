@@ -12,14 +12,22 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
 
-  <!-- Responsive -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Inline Styling -->
   <style>
-  h1 {
-    line-height: 90px;
-    font-size: 50px;
-}
-</style>
+    h1 {
+      line-height: 90px;
+      font-size: 50px;
+    }
+    .form-label {
+      font-weight: bold;
+    }
+    .form-control:invalid {
+      border-color: red;
+    }
+    .form-control:valid {
+      border-color: green;
+    }
+  </style>
 </head>
 <body>
   <!-- Main Content -->
@@ -29,36 +37,43 @@
       <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
         <input type="text" id="title" name="title" class="form-control" placeholder="Enter blog title" required>
+        <div class="invalid-feedback">Please provide a title.</div>
       </div>
 
       <div class="mb-3">
         <label for="date" class="form-label">Date:</label>
         <input type="date" id="date" name="date" class="form-control" required>
+        <div class="invalid-feedback">Please select a date.</div>
       </div>
 
       <div class="mb-3">
         <label for="author" class="form-label">Author:</label>
         <input type="text" id="author" name="author" class="form-control" placeholder="Enter author name" required>
+        <div class="invalid-feedback">Please provide the author's name.</div>
       </div>
 
       <div class="mb-3">
         <label for="category" class="form-label">Category:</label>
         <input type="text" id="category" name="category" class="form-control" placeholder="Enter category" required>
+        <div class="invalid-feedback">Please provide a category.</div>
       </div>
 
       <div class="mb-3">
-        <label for="image" class="form-label">Image URL:</label>
-        <input type="url" id="image" name="image" class="form-control" placeholder="Enter image URL" required>
+        <label for="image" class="form-label">Image File Name:</label>
+        <input type="text" id="image" name="image" class="form-control" placeholder="Enter image file name (e.g., blog1.jpg)" required>
+        <div class="invalid-feedback">Please provide an image file name.</div>
       </div>
 
       <div class="mb-3">
         <label for="description" class="form-label">Description:</label>
         <textarea id="description" name="description" rows="4" class="form-control" placeholder="Write your description here" required></textarea>
+        <div class="invalid-feedback">Please provide a description.</div>
       </div>
 
       <div class="mb-3">
         <label for="content" class="form-label">Content:</label>
         <textarea id="content" name="content" rows="10" class="form-control" placeholder="Write your blog content here" required></textarea>
+        <div class="invalid-feedback">Please provide the blog content.</div>
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
@@ -91,21 +106,20 @@
 
       // Generate URL and slug dynamically
       const slug = title.replace(/\s+/g, '-').toLowerCase();
-      formData.url = `https://twinunique.com/pages/Blog/${slug}.html`;
+      formData.url = `/pages/Blog/${slug}.html`;
 
       try {
-        const response = await fetch('/add-blog', {
+        const response = await fetch('/api/blogs', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData),
         });
 
         if (response.ok) {
-          const result = await response.json();
-          alert(`Blog added successfully! View it here: ${result.url}`);
+          alert('Blog added successfully!');
           document.getElementById('addBlogForm').reset();
         } else {
-          alert('Error adding blog. Please try again.');
+          alert('Error adding blog. Please check your input and try again.');
         }
       } catch (error) {
         console.error('Error:', error);
