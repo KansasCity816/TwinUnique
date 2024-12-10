@@ -4,149 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add a New Blog - Twin Unique</title>
-  
-  
+
   <!-- Stylesheets -->
-<link href="assets/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap" rel="stylesheet">
-
-<link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-<link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
-
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+  <!-- Responsive -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 <body>
-  <main>
-    <h1>Add a New Blog</h1>
-    <form id="blogForm">
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title" placeholder="Enter blog title" required>
+  <!-- Main Content -->
+  <main class="container my-5">
+    <h1 class="text-center mb-4">Add a New Blog</h1>
+    <form id="blogForm" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" id="title" name="title" class="form-control" placeholder="Enter blog title" required>
+      </div>
 
-      <label for="date">Date:</label>
-      <input type="date" id="date" name="date" required>
+      <div class="mb-3">
+        <label for="date" class="form-label">Date:</label>
+        <input type="date" id="date" name="date" class="form-control" required>
+      </div>
 
-      <label for="author">Author:</label>
-      <input type="text" id="author" name="author" placeholder="Enter author name" required>
+      <div class="mb-3">
+        <label for="author" class="form-label">Author:</label>
+        <input type="text" id="author" name="author" class="form-control" placeholder="Enter author name" required>
+      </div>
 
-      <label for="category">Category:</label>
-      <input type="text" id="category" name="category" placeholder="Enter category" required>
+      <div class="mb-3">
+        <label for="category" class="form-label">Category:</label>
+        <input type="text" id="category" name="category" class="form-control" placeholder="Enter category" required>
+      </div>
 
-      <label for="image">Image URL:</label>
-      <input type="url" id="image" name="image" placeholder="Enter image URL" required>
-	  
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" rows="4" placeholder="Write your description here" required></textarea>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image URL:</label>
+        <input type="url" id="image" name="image" class="form-control" placeholder="Enter image URL" required>
+      </div>
 
-      <label for="content">Content:</label>
-      <textarea id="content" name="content" rows="10" placeholder="Write your blog content here" required></textarea>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea id="description" name="description" rows="4" class="form-control" placeholder="Write your description here" required></textarea>
+      </div>
 
-      <button type="submit">Submit</button>
+      <div class="mb-3">
+        <label for="content" class="form-label">Content:</label>
+        <textarea id="content" name="content" rows="10" class="form-control" placeholder="Write your blog content here" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </main>
-<!-- Main Footer -->
-	<footer class="main-footer">
-		<div class="main-footer_image" style="background-image:url(assets/images/background/2.jpg)"></div>
-		<div class="auto-container">
-			<!-- Widgets Section -->
-			<div class="main-footer_content">
-				<h2 class="main-footer_title">Let’s Start Work Today?</h2>
-				<div class="main-footer_text">We turn you on to pro lighting strategies to highlight features create intrigue and make <br> the most of indoor and outdoor rooms</div>
-				<div class="main-footer_button">
-					<a href="about.html" class="theme-btn btn-style-two">
-						<span class="btn-wrap">
-							<span class="text-one">Build Your Dream</span>
-							<span class="text-two">Build Your Dream</span>
-						</span>
-					</a>
-				</div>
-			</div>
-			<!-- Newsletter Box -->
-			<div class="newsletter-one">
-				<div class="row clearfix">
-					<!-- Title Column -->
-					<div class="newsletter-one_title-column col-lg-6 col-md-12 col-sm-12">
-						<div class="newsletter-one_title_outer">
-							<div class="newsletter-one_title-icon flaticon-paper-plane"></div>
-							<h3 class="newsletter-one_title">Subscribe Newsletter!</h3>
-							<div class="newsletter-one_text">Get recent news and updates or offers.</div>
-						</div>
-					</div>
-					<!-- Form Column -->
-					<div class="newsletter-one_form-column col-lg-6 col-md-12 col-sm-12">
-						<div class="newsletter-one_form-outer">
-							<div class="newsletter-box">
-								<form method="post" action="contact.html">
-									<div class="form-group">
-										<input type="email" name="search-field" value="" placeholder="Enter your mail" required>
-										<button type="submit" class="theme-btn">submit now</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="main-footer_copyright">2024 &copy; Zinex. All in One Multipurpose WordPress Landing page Theme Designed by <a href="https://themeforest.net/user/codeliono">Codeliono</a></div>
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-light">
+    <p>&copy; 2024 Twin Unique. All Rights Reserved.</p>
+  </footer>
 
-		</div>
-	</footer>
-	<!-- End Main Footer -->
-
-	<!-- Search Popup -->
-	<div class="search-popup">
-		<div class="color-layer"></div>
-		<button class="close-search"><span class="flaticon-close"></span></button>
-		<form method="post" action="blog.html">
-			<div class="form-group">
-				<input type="search" name="search-field" value="" placeholder="Search Here" required="">
-				<button class="fa fa-solid fa-magnifying-glass fa-fw" type="submit"></button>
-			</div>
-		</form>
-	</div>
-	<!-- End Search Popup -->
-	
-</div>
-<!-- End PageWrapper -->
-
-<div class="progress-wrap">
-	<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-		<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
-	</svg>
-</div>
-
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/appear.js"></script>
-<script src="assets/js/parallax.min.js"></script>
-<script src="assets/js/tilt.jquery.min.js"></script>
-<script src="assets/js/jquery.paroller.min.js"></script>
-<script src="assets/js/wow.js"></script>
-<script src="assets/js/swiper.min.js"></script>
-<script src="assets/js/backtotop.js"></script>
-<script src="assets/js/odometer.js"></script>
-<script src="assets/js/parallax-scroll.js"></script>
-
-<script src="assets/js/gsap.min.js"></script>
-<script src="assets/js/SplitText.min.js"></script>
-<script src="assets/js/ScrollTrigger.min.js"></script>
-<script src="assets/js/ScrollToPlugin.min.js"></script>
-<script src="assets/js/ScrollSmoother.min.js"></script>
-
-<script src="assets/js/jquery.marquee.min.js"></script>
-<script src="assets/js/magnific-popup.min.js"></script>
-<script src="assets/js/nav-tool.js"></script>
-<script src="assets/js/jquery-ui.js"></script>
-<script src="assets/js/script.js"></script>
+  <!-- Scripts -->
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
   <script>
     document.getElementById('blogForm').addEventListener('submit', async (e) => {
       e.preventDefault();
