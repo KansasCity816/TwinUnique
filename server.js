@@ -3,92 +3,73 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
-
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(__dirname)); // Serve static files
+app.use(express.static(__dirname));
 
-// Route to serve the add-blog.html file directly from the root directory
+// Serve Add Blog Page
 app.get('/add-blog', (req, res) => {
     res.sendFile(path.join(__dirname, 'add-blog.html'));
 });
 
-// Route to serve the blog-list.html file directly from the root directory
+// Serve Blog List
 app.get('/blog-list', (req, res) => {
     res.sendFile(path.join(__dirname, 'blog-list.html'));
 });
 
-// Blog API
-const blogsFilePath = path.join(__dirname, 'blogs.json');
-
-// Utility function to read blogs.json
-const readBlogs = () => {
-    if (!fs.existsSync(blogsFilePath)) {
-        fs.writeFileSync(blogsFilePath, '[]');
-    }
-    return JSON.parse(fs.readFileSync(blogsFilePath, 'utf8'));
-};
-
-// Utility function to save blogs to blogs.json
-const saveBlogs = (blogs) => {
-    fs.writeFileSync(blogsFilePath, JSON.stringify(blogs, null, 2));
-};
-
-// API to get all blogs
+// API for fetching all blogs
 app.get('/api/blogs', (req, res) => {
-    const blogs = readBlogs();
+    const blogs = JSON.parse(fs.readFileSync('./blogs.json', 'utf8'));
     res.json(blogs);
 });
 
-// API to add a new blog
+// API for creating a new blog
 app.post('/api/blogs', (req, res) => {
-    const { title, category, description, image } = req.body;
+    const { title, date, author, category, image, description, content } = req.body;
 
-    if (!title || !category || !description || !image) {
-        return res.status(400).send('Missing required fields');
+    if (!title || !content) {
+        return res.status(400).json({ error: 'Title and content are required.' });
     }
 
-    const blogs = readBlogs();
-    const slug = title.toLowerCase().replace(/\s+/g, '-'); // Create slug for blog filename
-    const newBlog = {
+    const slug = title.toLowerCase().replace(/\s+/g, '-');
+    const blogData = {
+        id: slug,
         title,
+        date,
+        author: author || 'Anonymous',
         category,
+        image: image || 'assets/images/blog/house-1.jpg',
         description,
-        image,
-        slug,
-        date: new Date().toISOString(),
+        content,
     };
-    blogs.push(newBlog);
-    saveBlogs(blogs);
 
-    // Generate blog HTML
-    const blogContent = `
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>${title}</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-    <h1>${title}</h1>
-    <p><strong>Category:</strong> ${category}</p>
-    <p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p>
-    <img src="/assets/images/blog/${image}" alt="${title}" style="max-width:100%; height:auto;">
-    <p>${description}</p>
-</body>
-</html>
-    `;
+    // Read blogs.json and update
+    const blogsFilePath = path.join(__dirname, 'blogs.json');
+    const blogs = JSON.parse(fs.readFileSync(blogsFilePath, 'utf8'));
+    blogs.push(blogData);
+    fs.writeFileSync(blogsFilePath, JSON.stringify(blogs, null, 2));
 
-    const blogFilePath = path.join(__dirname, 'pages/Blog', `${slug}.html`);
-    fs.writeFileSync(blogFilePath, blogContent);
+    // Read blog-template.html and replace placeholders
+    const templatePath = path.join(__dirname, 'blog-template.html');
+    const template = fs.readFileSync(templatePath, 'utf8');
+    const populatedTemplate = template
+        .replace(/{{title}}/g, blogData.title)
+        .replace(/{{date}}/g, blogData.date)
+        .replace(/{{author}}/g, blogData.author)
+        .replace(/{{category}}/g, blogData.category)
+        .replace(/{{image}}/g, blogData.image)
+        .replace(/{{description}}/g, blogData.description)
+        .replace(/{{content}}/g, blogData.content);
 
-    res.status(201).send('Blog added and page created!');
+    // Save new blog post to pages/Blog
+    const blogFilePath = path.join(__dirname, `pages/Blog/${slug}.html`);
+    fs.writeFileSync(blogFilePath, populatedTemplate);
+
+    res.status(201).json({ message: 'Blog created successfully.', url: `/pages/Blog/${slug}.html` });
 });
 
-// Start the server
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

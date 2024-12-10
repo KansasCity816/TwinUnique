@@ -120,36 +120,40 @@
 
 <!-- JavaScript -->
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
-        const blogList = document.getElementById("blogList");
-
-        if (blogs.length > 0) {
-            blogs.forEach(blog => {
-                const blogHTML = `
-                    <div class="news-block_two">
-                        <div class="news-block_two-inner">
-                            <div class="news-block_two-image">
-                                <a href="${blog.id}.html"><img src="${blog.image}" alt="${blog.title}" /></a>
-                            </div>
-                            <div class="news-block_two-content">
-                                <h4 class="news-block_two-heading"><a href="${blog.id}.html">${blog.title}</a></h4>
-                                <div class="news-block_two-text">${blog.content.substring(0, 150)}...</div>
-                                <ul class="news-block_two-meta">
-                                    <li><span class="icon fa-solid fa-calendar-days fa-fw"></span>${blog.date}</li>
-                                    <li><span class="icon fa-regular fa-user fa-fw"></span>${blog.author}</li>
-                                </ul>
-                                <a href="${blog.id}.html" class="btn btn-primary">Read More</a>
+    document.addEventListener('DOMContentLoaded', () => {
+    fetch('/api/blogs')
+        .then((response) => response.json())
+        .then((blogs) => {
+            const blogList = document.getElementById('blogList');
+            if (blogs.length > 0) {
+                blogs.forEach((blog) => {
+                    const blogHTML = `
+                        <div class="news-block_two">
+                            <div class="news-block_two-inner">
+                                <div class="news-block_two-image">
+                                    <a href="${blog.id}.html"><img src="${blog.image}" alt="${blog.title}" /></a>
+                                </div>
+                                <div class="news-block_two-content">
+                                    <h4 class="news-block_two-heading"><a href="${blog.id}.html">${blog.title}</a></h4>
+                                    <div class="news-block_two-text">${blog.description}</div>
+                                    <ul class="news-block_two-meta">
+                                        <li><span class="icon fa-solid fa-calendar-days fa-fw"></span>${blog.date}</li>
+                                        <li><span class="icon fa-regular fa-user fa-fw"></span>${blog.author}</li>
+                                    </ul>
+                                    <a href="${blog.id}.html" class="btn btn-primary">Read More</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                `;
-                blogList.innerHTML += blogHTML;
-            });
-        } else {
-            blogList.innerHTML = "<p>No blogs available. Please add some!</p>";
-        }
-    });
+                    `;
+                    blogList.innerHTML += blogHTML;
+                });
+            } else {
+                blogList.innerHTML = '<p>No blogs available. Please add some!</p>';
+            }
+        })
+        .catch((error) => console.error('Error loading blogs:', error));
+});
+
 </script>
 
 <script src="assets/js/jquery.js"></script>
