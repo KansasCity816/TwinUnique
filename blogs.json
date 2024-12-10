@@ -12,5 +12,15 @@
     "image": "assets/images/blog2.jpg",
     "author": "John Doe",
     "date": "2024-12-05"
+  },
+  {
+    "id": "test",
+    "title": "test",
+    "date": "2024-12-10",
+    "author": "Twin Unique Real Estate",
+    "category": "testing this",
+    "image": "https://kansascity816.github.io/TwinUnique/assets/images/blog/house-1.jpg",
+    "description": "test",
+    "content": "test"
   }
 ]

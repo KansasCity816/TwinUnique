@@ -18,6 +18,15 @@
 <body>
 
 <div class="page-wrapper">
+    <!-- Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <!-- Cursor End -->
+
+    <!-- Preloader -->
+    <div class="preloader"></div>
+    <!-- End Preloader -->
+
     <!-- Main Header -->
     <header class="main-header header-style-one">
         <div class="header-lower">
@@ -28,7 +37,6 @@
                             <div class="logo"><a href="index.html"><img src="assets/images/logo.png" alt="Logo" title="Zinex"></a></div>
                         </div>
                         <div class="nav-outer d-flex flex-wrap">
-                            <!-- Main Menu -->
                             <nav class="main-menu navbar-expand-md">
                                 <div class="navbar-header">
                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +89,6 @@
                 <!-- Sidebar Side -->
                 <div class="sidebar-side col-lg-3 col-md-12 col-sm-12">
                     <aside class="sidebar sticky-top">
-                        <!-- Popular Category Widget -->
                         <div class="sidebar-widget popular-widget">
                             <div class="sidebar-title">
                                 <h5>Popular Category</h5>
@@ -102,6 +109,7 @@
 
     <!-- Main Footer -->
     <footer class="main-footer">
+        <div class="main-footer_image" style="background-image:url(assets/images/background/2.jpg)"></div>
         <div class="auto-container">
             <div class="main-footer_content">
                 <h2 class="main-footer_title">Let’s Start Work Today?</h2>
@@ -121,39 +129,37 @@
 <!-- JavaScript -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-    fetch('/api/blogs')
-        .then((response) => response.json())
-        .then((blogs) => {
-            const blogList = document.getElementById('blogList');
-            if (blogs.length > 0) {
-                blogs.forEach((blog) => {
-                    const blogHTML = `
-                        <div class="news-block_two">
-                            <div class="news-block_two-inner">
-                                <div class="news-block_two-image">
-                                    <a href="${blog.id}.html"><img src="${blog.image}" alt="${blog.title}" /></a>
-                                </div>
-                                <div class="news-block_two-content">
-                                    <h4 class="news-block_two-heading"><a href="${blog.id}.html">${blog.title}</a></h4>
-                                    <div class="news-block_two-text">${blog.description}</div>
-                                    <ul class="news-block_two-meta">
-                                        <li><span class="icon fa-solid fa-calendar-days fa-fw"></span>${blog.date}</li>
-                                        <li><span class="icon fa-regular fa-user fa-fw"></span>${blog.author}</li>
-                                    </ul>
-                                    <a href="${blog.id}.html" class="btn btn-primary">Read More</a>
+        fetch('/api/blogs')
+            .then((response) => response.json())
+            .then((blogs) => {
+                const blogList = document.getElementById('blogList');
+                if (blogs.length > 0) {
+                    blogs.forEach((blog) => {
+                        const blogHTML = `
+                            <div class="news-block_two">
+                                <div class="news-block_two-inner">
+                                    <div class="news-block_two-image">
+                                        <a href="pages/Blog/${blog.id}.html"><img src="${blog.image}" alt="${blog.title}" /></a>
+                                    </div>
+                                    <div class="news-block_two-content">
+                                        <h4 class="news-block_two-heading"><a href="pages/Blog/${blog.id}.html">${blog.title}</a></h4>
+                                        <div class="news-block_two-text">${blog.description}</div>
+                                        <ul class="news-block_two-meta">
+                                            <li><span class="icon fa-solid fa-calendar-days fa-fw"></span>${blog.date}</li>
+                                            <li><span class="icon fa-regular fa-user fa-fw"></span>${blog.author}</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    `;
-                    blogList.innerHTML += blogHTML;
-                });
-            } else {
-                blogList.innerHTML = '<p>No blogs available. Please add some!</p>';
-            }
-        })
-        .catch((error) => console.error('Error loading blogs:', error));
-});
-
+                        `;
+                        blogList.innerHTML += blogHTML;
+                    });
+                } else {
+                    blogList.innerHTML = '<p>No blogs available. Please add some!</p>';
+                }
+            })
+            .catch((error) => console.error('Error loading blogs:', error));
+    });
 </script>
 
 <script src="assets/js/jquery.js"></script>
