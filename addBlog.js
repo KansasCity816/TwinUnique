@@ -4,7 +4,7 @@ document.getElementById("addBlogForm").addEventListener("submit", function (e) {
     // Get form values
     const title = document.getElementById("title").value.trim();
     const content = document.getElementById("content").value.trim();
-    const image = document.getElementById("image").value.trim();
+    const image = document.getElementById("image").value.trim() || "assets/images/blog/house-1.jpg";
     const date = new Date().toLocaleDateString(); // Auto-generate date
     const author = document.getElementById("author").value.trim(); // Optional author field
 
